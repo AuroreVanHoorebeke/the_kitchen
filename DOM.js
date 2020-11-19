@@ -1,10 +1,10 @@
 const ul = document.querySelector("ul");
 
-let children = ul.childNodes;
+let childrenList = ul.childNodes;
 
 let i = 0;
 
-for (let child of children) {
+for (let child of childrenList) {
     if (child.textContent == "Fast and Furious") {
         const firstChild = ul.firstElementChild;
         ul.insertBefore(child, firstChild);
@@ -20,11 +20,34 @@ for (let child of children) {
         };
     })
 
-    for (j = i + 1; j < children.length; j++) {
-        if (child.isEqualNode(children[j])) {
-            ul.removeChild(children[j]);
+    for (j = i + 1; j < childrenList.length; j++) {
+        if (child.isEqualNode(childrenList[j])) {
+            ul.removeChild(childrenList[j]);
         }
     }
 
     i++;
+
+    function randomize() {
+        const oldUl = document.querySelector('ul')
+        const newUl = document.createElement('ul')
+
+        newUl.appendChild(oldUl.children[0])
+
+        for (let i = 0; oldUl.children.length > 0; i++) {
+            const oldLi = oldUl.children
+            const randomIndex = Math.floor(oldLi.length * Math.random())
+            newUl.appendChild(oldLi[randomIndex])
+        }
+
+        document.body.removeChild(oldUl)
+        document.body.appendChild(newUl)
+
+    }
+
+    document.body.addEventListener("keyup", function (e) {
+        if (e.key == "r") {
+            randomize()
+        };
+    })
 }
