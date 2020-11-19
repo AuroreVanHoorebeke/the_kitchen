@@ -1,5 +1,9 @@
 const ul = document.querySelector("ul");
 
-let childList = ul.childNodes;
+let children = ul.childNodes;
 
-console.log(childList);
+for (let child of children) {
+    if (child.nodeType === 1) {
+        console.log(child);
+    }
+}
