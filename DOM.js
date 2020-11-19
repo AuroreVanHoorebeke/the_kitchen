@@ -8,4 +8,6 @@ for (let child of children) {
         ul.insertBefore(child, firstChild);
         child.className = "important";
     }
+
+    child.addEventListener("click", function(){alert(child.textContent);})
 }
