@@ -1,3 +1,4 @@
+const body = document.querySelector("body");
 const ul = document.querySelector("ul");
 
 let childrenList = ul.childNodes;
@@ -50,4 +51,9 @@ for (let child of childrenList) {
             randomize()
         };
     })
+
+
+
 }
+    const newDiv = document.createElement("div");
+    body.insertBefore(newDiv, ul);
