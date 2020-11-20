@@ -6,12 +6,14 @@ let childrenList = ul.childNodes;
 let i = 0;
 
 for (let child of childrenList) {
+    //Reordering the list
     if (child.textContent == "Fast and Furious") {
         const firstChild = ul.firstElementChild;
         ul.insertBefore(child, firstChild);
         child.className = "important";
     }
 
+    //Alerts
     child.addEventListener("click", function () {
 
         if (child.textContent == "Fast and Furious") {
@@ -21,6 +23,7 @@ for (let child of childrenList) {
         };
     })
 
+    //Deletes duplicates in the list
     for (j = i + 1; j < childrenList.length; j++) {
         if (child.isEqualNode(childrenList[j])) {
             ul.removeChild(childrenList[j]);
@@ -29,6 +32,7 @@ for (let child of childrenList) {
 
     i++;
 
+    //Shuffling the list on keyup
     function randomize() {
         const oldUl = document.querySelector('ul')
         const newUl = document.createElement('ul')
@@ -55,5 +59,7 @@ for (let child of childrenList) {
 
 
 }
+
+// important-normal franchises
     const newDiv = document.createElement("div");
     body.insertBefore(newDiv, ul);
