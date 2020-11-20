@@ -55,10 +55,17 @@ for (let child of childrenList) {
             randomize()
         };
     })
-
-
-
 }
+
+// Duplicate function
+document.body.addEventListener("keyup", function (e) {
+        if (e.key == "d") {
+            const fnf = ul.firstElementChild;
+            const fnfClone = fnf.cloneNode(true);
+            ul.insertBefore(fnfClone, fnf);
+            console.log("I don’t have friends, I have family.");
+        };
+    });
 
 // important-normal franchises
 const newDiv = document.createElement("div");
@@ -103,4 +110,4 @@ select.addEventListener("change", function (e) {
             }
         }
     }
-})
+});
