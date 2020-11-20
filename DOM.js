@@ -63,3 +63,12 @@ for (let child of childrenList) {
 // important-normal franchises
     const newDiv = document.createElement("div");
     body.insertBefore(newDiv, ul);
+
+    const select = document.createElement("select");
+    newDiv.appendChild(select);
+    const impFr = document.createElement("option");
+    impFr.textContent = "important franchises";
+    select.appendChild(impFr);
+    const normFr = document.createElement("option");
+    normFr.textContent = "normal franchises";
+    select.appendChild(normFr);
