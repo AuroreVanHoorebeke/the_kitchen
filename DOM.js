@@ -61,14 +61,46 @@ for (let child of childrenList) {
 }
 
 // important-normal franchises
-    const newDiv = document.createElement("div");
-    body.insertBefore(newDiv, ul);
+const newDiv = document.createElement("div");
+body.insertBefore(newDiv, ul);
 
-    const select = document.createElement("select");
-    newDiv.appendChild(select);
-    const impFr = document.createElement("option");
-    impFr.textContent = "important franchises";
-    select.appendChild(impFr);
-    const normFr = document.createElement("option");
-    normFr.textContent = "normal franchises";
-    select.appendChild(normFr);
+const select = document.createElement("select");
+newDiv.appendChild(select);
+const chooseFr = document.createElement("option");
+chooseFr.textContent = "Select a franchise type";
+select.appendChild(chooseFr);
+const impFr = document.createElement("option");
+impFr.textContent = "Important franchises";
+select.appendChild(impFr);
+const normFr = document.createElement("option");
+normFr.textContent = "Normal franchises";
+select.appendChild(normFr);
+
+
+select.addEventListener("change", function (e) {
+    const allLi = document.querySelectorAll("li");
+
+    for (let elem of allLi) {
+
+        if (select.selectedIndex == "0") {
+            elem.style.visibility = "hidden";
+        }
+        //if important franchise, normal franchises are hidden
+        if (select.selectedIndex == "1") {
+            if (elem.className == "important") {
+                elem.style.visibility = "visible";
+            } else {
+                elem.style.visibility = "hidden";
+            }
+        }
+
+        //if normal franchise, important franchises are hidden
+        if (select.selectedIndex == "2") {
+            if (elem.className !== "important") {
+                elem.style.visibility = "visible";
+            } else {
+                elem.style.visibility = "hidden";
+            }
+        }
+    }
+})
