@@ -5,4 +5,7 @@ I wouldn't be as fluent in JavaScript if I had not crossed Emily's path`
 
 const pattern = /emily/igm;
 
-if(text.match(pattern)){console.log('pattern found')};
+if(text.match(pattern)){
+    const newSentence = text.replace(pattern, "Kelian");
+    console.log(newSentence);
+};
