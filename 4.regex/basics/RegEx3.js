@@ -11,7 +11,6 @@ const myTextDiv = document.createElement("div");
 myTextDiv.className = "myTextDiv";
 body.appendChild(myTextDiv);
 
-
 const sentences = `In ancient Egypt a god was an entity with the head of an animal and a human body. An egyptian god is not to be mistaken with the God that is worshipped in churches and mosque around the globe these days! God is not a god!`;
 myTextDiv.innerHTML = sentences;
 
@@ -33,4 +32,4 @@ body.addEventListener("keyup", function (e){
             myTextDiv.innerHTML = searchResults.join(" ");
         }
     ;}
- });
+});
