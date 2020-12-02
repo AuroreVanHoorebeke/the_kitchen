@@ -22,8 +22,8 @@ console.log(words);
 
 body.addEventListener("keyup", function (e){
     let userInput = e.target.value;
-    let pattern = new RegExp(userInput, "mi");
-    console.log(pattern);
+        let pattern = new RegExp(userInput, "mi");
+        console.log(pattern);
 
     const searchResults = [];
     for(let elem of words){
