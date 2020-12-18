@@ -1,0 +1,14 @@
+main{
+    border: 1px solid black;
+    height: 400px;
+}
+
+.apple{
+    background-color: red;
+    position: relative;
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+    top: 0px;
+    left: 0px;
+}
