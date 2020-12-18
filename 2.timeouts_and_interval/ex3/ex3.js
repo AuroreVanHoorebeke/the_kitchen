@@ -6,6 +6,11 @@ const body = document.querySelector("body");
 const main = document.createElement("main");
 main.style.border = "1px solid black";
 main.style.height = "400px";
+main.style.width = "400px";
+
+const reset = document.createElement("button");
+reset.innerHTML = "reset";
+body.appendChild(reset);
 
 body.appendChild(main);
 const appleDiv = document.createElement("div");
@@ -19,36 +24,75 @@ let apple = {
 }
 
 function gravity(){
-    if(apple.y <= 400){
-    apple.a += 1;
-    apple.y += apple.a;
-    appleDiv.style.top = `${apple.y}px`
-    interval = setInterval(gravity, 100)
-    } else {
-        clearInterval(interval);
+    if(apple.y < 350){
+        apple.a += 1;
+        apple.y += apple.a;
+        appleDiv.style.top = `${apple.y}px`
+        setTimeout(gravity, 100)
     }
 }
 
+function resetPos(interval){
+    apple.x= 0;
+    apple.y= 0;
+    apple.a= 0;
+    appleDiv.style.top = `${apple.y}px`
+    appleDiv.style.left = `${apple.x}px`
+}
+
 function move(e){
-    switch(e.key){
+    if(apple.x < 350 && apple.x > 0){
 
-        case "ArrowLeft":
-        apple.x -= 5;
-        console.log(apple.x);
-        appleDiv.style.left = `${apple.x}px`
-        break;
+        switch(e.key){
+        
+            case "ArrowLeft":
+            apple.x -= 5;
+            appleDiv.style.left = `${apple.x}px`
+            break
 
-        case "ArrowRight":
-        apple.x += 5;
-        console.log(apple.x);
-        appleDiv.style.left = `${apple.x}px`
+            case "ArrowRight":
+            apple.x += 5;
+            appleDiv.style.left = `${apple.x}px`
+            break
 
-        break;
-    };}
+        }
+    } else if(apple.x == 350) {
+
+        switch(e.key){
+            case "ArrowRight":
+            apple.x += 0;
+
+            appleDiv.style.left = `${apple.x}px`
+            break;
+
+            case "ArrowLeft":
+            apple.x -= 5;
+            appleDiv.style.left = `${apple.x}px`
+            break;
+        }
+    } else {
+        if(apple.x == 0){
+            switch(e.key){
+                
+                case "ArrowRight":
+                apple.x += 5;
+                appleDiv.style.left = `${apple.x}px`
+                break;
+
+                case "ArrowLeft":
+                apple.x -= 0;
+                appleDiv.style.left = `${apple.x}px`
+                break;
+            }
+        }
+    }
+}
 
 document.addEventListener("keydown", move);
 
 appleDiv.addEventListener("click", gravity);
+
+reset.addEventListener("click", resetPos);
 
 
 
